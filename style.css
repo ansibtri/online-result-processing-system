@@ -44,13 +44,51 @@
 }
 .navbar ul li a{
     font-family: 'Roboto';
+    text-transform: uppercase;
 }
+.dropdown-menu{
+    position: absolute;
+    background-color: var(--primary);
+    display:none;
+    font-size: 1rem;
+    right: 10px;
+}
+.square-arrow{
+    background-color: var(--primary);
+    width:20px;
+    height:20px;
+    margin-left:40px;
+    margin-top:-10px;
+    transform: rotate(45deg);
+}
+.dropdown-menu ul li{
+    margin: 12px;
+}
+.dropdown:hover .dropdown-menu{
+    display:block;
+}
+
 /* header ends here  */
+/* showcase start here  */
 .showcase{
     overflow-x:hidden;
+    height: 380px;
     background-clip:border-box;
+    background-image: url("https://source.unsplash.com/1600x400/?education,gurukul");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+    z-index:-1;
+    position:relative;
 }
 .para{
     font-family: 'Pacifico', cursive;
     text-align:center;
+}
+/* showcase ends here  */
+/* welcome section ends here  */
+.scl-desc{
+    background-color: rgb(230, 225, 225);
+    font-family: 'Montserrat';
 }
