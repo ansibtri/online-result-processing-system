@@ -16,9 +16,7 @@
     height: var(--navbar-height);
     background-color: rgba(12, 213, 2, 0.3);
 }
-.logo{
-    width:
-}
+
 .logo img{
     width: 100%;
     height:auto;
@@ -88,7 +86,14 @@
 }
 /* showcase ends here  */
 /* welcome section ends here  */
+.scl-welcome{
+    margin: 0 5rem 5rem 5rem;
+}
 .scl-desc{
     background-color: rgb(230, 225, 225);
-    font-family: 'Montserrat';
+    font-family: 'Roboto';
 }
+.description{
+    font-family: 'Roboto';
+}
+

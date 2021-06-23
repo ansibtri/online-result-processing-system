@@ -9,7 +9,7 @@
     justify-content: center;
 }
 .grid-2{
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 50% 50%;
 }
 .grid-p-3{
     grid-template-columns: 10% 60% 10%;
@@ -35,6 +35,13 @@
 }
 .text-center{
     text-align:center;
+}
+.text-justify{
+    text-align:justify;
+}
+/* paragraph styling  */
+.para-1{
+    padding: 5px 3rem 5px 3rem;
 }
 /* multiple font size  */
 .sm{
