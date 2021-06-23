@@ -1,0 +1,168 @@
+.flex{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.grid{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+.grid-2{
+    grid-template-columns: 10% 65%;
+}
+.grid-p-3{
+    grid-template-columns: 10% 60% 10%;
+}
+.btn{
+    border:none;
+    padding:5px;
+    margin:5px;
+}
+/* font styling  */
+.robot{
+    font-family:Robot;
+}
+.text{
+    text-decoration: none;
+    color: #fff;
+}
+/* multiple font size  */
+.sm{
+    font-size: 10px;
+}
+.md{
+    font-size:1rem;
+}
+.lg{
+    font-size: 1.5rem;
+}
+.xl{
+    font-size: 2rem;
+}
+.xxl{
+    font-size:2.5rem;
+}
+/* padding */
+.p-0{
+    padding: 0;
+}
+.p-1{
+    padding:1rem;
+}
+.p-2{
+    padding:2rem;
+}
+.p-3{
+    padding:3rem;
+}
+.p-4{
+    padding:4rem;
+}
+.p-5{
+    padding:5rem;
+}
+/* padding in x-axis  */
+.px-1{
+    padding: 0 1.5rem;
+}
+.px-2{
+    padding: 0 2.5rem;
+}
+.px-3{
+    padding: 0 3.5rem;
+}
+.px-4{
+    padding: 0 4.5rem;
+}
+.px-5{
+    padding: 0 5.5rem;
+}
+
+/* padding in y-axis  */
+.py-1{
+    padding: 1.5rem 0;
+}
+.py-2{
+    padding: 2.5rem 0;
+}
+.py-3{
+    padding: 3.5rem 0;
+}
+.py-4{
+    padding: 4.5rem 0;
+}
+.py-5{
+    padding: 5.5rem 0;
+}
+/* margin */
+.m-0{
+    margin: 0;
+}
+.m-1{
+    margin:1rem;
+}
+.m-2{
+    margin:2rem;
+}
+.m-3{
+    margin:3rem;
+}
+.m-4{
+    margin:4rem;
+}
+.m-5{
+    margin:5rem;
+}
+/* margin in x-axis  */
+.mx-1{
+    margin: 0 1.5rem;
+}
+.mx-2{
+    margin: 0 2.5rem;
+}
+.mx-3{
+    margin: 0 3.5rem;
+}
+.mx-4{
+    margin: 0 4.5rem;
+}
+.mx-5{
+    margin: 0 5.5rem;
+}
+/* margin in y-axis  */
+.my-1{
+    margin: 1.5rem 0;
+}
+.my-2{
+    margin: 2.5rem 0;
+}
+.my-3{
+    margin: 3.5rem 0;
+}
+.my-4{
+    margin: 4.5rem 0;
+}
+.my-5{
+    margin: 5.5rem 0;
+}
+/* margin top  */
+/* margin */
+.mt-0{
+    margin: 0;
+}
+.mt-1{
+    margin:10px;
+}
+.mt-2{
+    margin:20px;
+}
+.mt-3{
+    margin:30px;
+}
+.mt-4{
+    margin:40px;
+}
+.mt-5{
+    margin:50px;
+}
