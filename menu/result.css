@@ -1,0 +1,17 @@
+*{
+    font-family: 'Roboto';
+}
+.result-form{
+    /* background-color: rosybrown; */
+}
+.result-form input, .result-form button{
+    width: 100%;
+    font-size: 20px;
+    border-radius: 20px;
+    border:1px solid #000;
+    background-color: #fff;
+    cursor:pointer;
+}
+.result-form button:hover{
+    transform: scale(0.9);   
+}
