@@ -10,7 +10,7 @@
         <nav>
             <ul class="flex flex-c">
                 <li><a href="faculty.html" class="text">Faculty</a></li>
-                <li><a href="admission.html" class="text">Admission</a></li>
+                <li><a href="admission.php" class="text">Admission</a></li>
                 <li><a href="services.html" class="text">Services</a></li>
             </ul>
         </nav>

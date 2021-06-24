@@ -58,6 +58,9 @@ img{
 .text-justify{
     text-align:justify;
 }
+.bold{
+    font-weight: bold;
+}
 /* paragraph styling  */
 .para-1{
     padding: 5px 3rem 5px 3rem;

@@ -12,7 +12,7 @@
             <nav>
                 <ul class="flex">
                     <li><a href="faculty.html" class="text">Faculty</a></li>
-                    <li><a href="admission.html" class="text">Admission</a></li>
+                    <li><a href="/school web/menu/admission.php" class="text">Admission</a></li>
                     <li><a href="services.html" class="text">Services</a></li>
                 </ul>
             </nav>
@@ -30,13 +30,13 @@
                         <li><a href="methodologies.html" class="text">Methodologies of Teaching</a></li>
                         <li><a href="committee.html" class="text">School Committee</a></li>
                         <li><a href="teacher.html" class="text">School Family</a></li>
+                        <li><a href="/school web/menu/result.php" class="text">Result</a></li>
                         <li><a href="aboutus.html" class="text">About Us</a></li>
                         <li><a href="contact.html" class="text">Contact Us</a></li>
                         <li><a href="schoolblog.html" class="text">Blog</a></li>
-                        <a href="index.html" class="px-2"><img
-                            src="https://www.freelogoservices.com/api/main/images/1j+ojFVDOMkX9Wytexe43D6khvWAqR9PkRrNwXs1M3EMoAJtliIpgvFr9...4z"
-                            alt=""></a>
-
+                        <a href="index.html" class="px-2">
+                            <img src="https://www.freelogoservices.com/api/main/images/1j+ojFVDOMkX9Wytexe43D6khvWAqR9PkRrNwXs1M3EMoAJtliIpgvFr9...4z" alt="">
+                        </a>
                     </ul>
                 </div>
             </div>

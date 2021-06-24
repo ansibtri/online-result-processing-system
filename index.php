@@ -1,8 +1,23 @@
 <?php
+
+    $showAlert = false;
     include 'partials/_dbconnect.php';
-    if(isset($_SERVER['REQUEST_METHOD'])=='POST'){
+    if($_SERVER['REQUEST_METHOD']=='POST'){
         $user_email = $_POST['email'];
-        $sql = "INSERT INTO `news_letter_subscriber` (`subscribe_email`) VALUES ('$user_email')";
+        $sql = "SELECT `subscribe_email` FROM `news_letter_subscriber` WHERE `subscribe_email`='$user_email'";
+        $result = mysqli_query($conn,$sql);
+        $num = mysqli_num_rows($result);
+        if($num == 1){
+            $showAlert = true;
+        }else{
+            $sql = "INSERT INTO `news_letter_subscriber` (`subscribe_email`) VALUES ('$user_email');";
+            $result = mysqli_query($conn,$sql);
+            if(!$result){
+                $showAlert = true;
+            }else{
+                echo "subscribed";
+            }
+        }
     }
 
 ?> 
