@@ -3,7 +3,7 @@
 
 
 :root{
-    --primary: rgb(76, 161, 76);
+    --primary: rgb(87, 168, 87);
     --navbar-height:100px;
 }
 *{
@@ -14,7 +14,9 @@
 /* header starts here  */
 .navbar{
     height: var(--navbar-height);
-    background-color: rgba(12, 213, 2, 0.3);
+    background-color: var(--primary);
+    /* position: fixed;
+    width:100%; */
 }
 
 .logo img{
@@ -50,6 +52,7 @@
     display:none;
     font-size: 1rem;
     right: 10px;
+    transition: all 0.6s ease-in;
 }
 .square-arrow{
     background-color: var(--primary);
@@ -95,5 +98,13 @@
 }
 .description{
     font-family: 'Roboto';
+}
+/* welcome section ends here  */
+/* news section here  */
+.notice-card{
+    overflow:hidden;
+}
+.notice-card img{
+    border-radius: 20px;
 }
 

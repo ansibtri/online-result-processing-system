@@ -3,13 +3,19 @@
     align-items: center;
     justify-content: center;
 }
+.flex-c{
+    flex-direction: column;
+}
 .grid{
     display: grid;
     align-items: center;
     justify-content: center;
 }
+.grid-3{
+    grid-template-columns: repeat(3,1fr);
+}
 .grid-2{
-    grid-template-columns: 50% 50%;
+    grid-template-columns: repeat(2,1fr);
 }
 .grid-p-3{
     grid-template-columns: 10% 60% 10%;
@@ -18,11 +24,21 @@
     background-color: #fff;
     color:#333;
     box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    border-radius: 20px;
+}
+img{
+    max-width: 100%;
+    height:auto;
 }
 .btn{
     border:none;
     padding:5px;
     margin:5px;
+    border-radius: 30px;
+}
+.btn-outline{
+    outline: 1px solid var(--primary);
+    border-radius: 30px;
 }
 /* font styling  */
 .robot{
