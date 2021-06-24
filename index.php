@@ -1,3 +1,15 @@
+<?php
+    include 'partials/_dbconnect.php';
+    if(isset($_SERVER['REQUEST_METHOD'])=='POST'){
+        $user_email = $_POST['email'];
+        $sql = "INSERT INTO `news_letter_subscriber` (`subscribe_email`) VALUES ('$user_email')";
+    }
+
+?> 
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,56 +23,8 @@
 </head>
 
 <body>
-    <!-- header starts here  -->
-    <header>
-        <div class="navbar grid grid-p-3 lg">
-            <div class="logo">
-                <a href="index.html"><img
-                        src="https://www.freelogoservices.com/api/main/images/1j+ojFVDOMkX9Wytexe43D6khvWAqR9PkRrNwXs1M3EMoAJtliIpgvFr9...4z"
-                        alt=""></a>
-            </div>
-            <nav>
-                <ul class="flex">
-                    <li><a href="faculty.html" class="text">Faculty</a></li>
-                    <li><a href="admission.html" class="text">Admission</a></li>
-                    <li><a href="services.html" class="text">Services</a></li>
-                </ul>
-            </nav>
-            <div class="dropdown">
-                <img src="assets/2x/outline_arrow_drop_down_circle_white_24dp.png" alt="Dropdown-Menu">
-                <div class="dropdown-menu">
-                    <!-- <div class="square-arrow">
-                        making a arrow
-                    </div> -->
-                    <ul>
-                        <li><a href="gallery.html" class="text">Gallery</a></li>
-                        <li><a href="activities.html" class="text">Student's Activities</a></li>
-                        <li><a href="program.html" class="text">Program</a></li>
-                        <!-- <div class="dropdown-menu">
-                            <ul>
-                                <li href="#" class="text">Weekly Program</li>
-                                <li href="#" class="text">Monthly Program</li>
-                                <li href="#" class="text">Yearly Program</li>
-                            </ul>
-                        </div> -->
-                        <li><a href="calendar.html" class="text">Calendar</a></li>
-                        <li><a href="methodologies.html" class="text">Methodologies of Teaching</a></li>
-                        <li><a href="committee.html" class="text">School Committee</a></li>
-                        <li><a href="teacher.html" class="text">School Family</a></li>
-                        <li><a href="aboutus.html" class="text">About Us</a></li>
-                        <li><a href="contact.html" class="text">Contact Us</a></li>
-                        <li><a href="schoolblog.html" class="text">Blog</a></li>
-                        <a href="index.html" class="px-2"><img
-                            src="https://www.freelogoservices.com/api/main/images/1j+ojFVDOMkX9Wytexe43D6khvWAqR9PkRrNwXs1M3EMoAJtliIpgvFr9...4z"
-                            alt=""></a>
-
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- header ends here  -->
-    <!-- showcase starts here  -->
+   <?php include 'partials/_nav.php';?> 
+<!-- showcase starts here  -->
     <section>
         <div class="showcase">
             <h2 class="para xxl p-2 mt-4 text text-center">"Education For Change, Education For Humanity"</h2>
@@ -108,7 +72,7 @@
     <section>
         <div class="scl-welcome mx-5">
             <h2 class="text-center para xxxl p-2 my-2">Latest Notice</h2>
-            <div class="grid grid-3">
+            <div class="flex flex-c">
                 <div class="card flex flex-c m-2 p-0 notice-card">
                     <img src="https://source.unsplash.com/600x400/?education,gurukul" alt="">
                     <div class="description p-2">
@@ -165,7 +129,7 @@
     <!-- newsletter section starts here  -->
     <section>
         <div class="newsletter">
-            <form action="#">
+            <form action="index.php" method="POST">
                 <h3 class="text-center xxl p-4 text">Subscribe to Get Notice</h3>
                 <div class="subscribe flex">
                     <input type="email" maxlength="50" name="email" id="email" placeholder="example@email.com">
@@ -175,11 +139,7 @@
         </div>
     </section>
     <!-- newsletter section ends here  -->
-    <footer>
-        <div class="foot-nav">
-            <p class="text-center md p-1">Copyright&copy; 2021 | All rights Reserved</p>
-        </div>
-    </footer>
+    <?php include 'partials/_footer.php';?> 
 </body>
 
 </html>
