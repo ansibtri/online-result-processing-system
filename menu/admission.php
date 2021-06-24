@@ -3,6 +3,7 @@
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         include '../partials/_dbconnect.php';
+        $studentid = $_POST['studentid'];
         $fname = $_POST['fname'];
         $lname = $_POST['surname'];
         $dob = $_POST['dob'];
@@ -11,7 +12,14 @@
         $plocation=$_POST['plocation'];
         $section = $_POST['section'];
         $phone=$_POST['phone'];
-        echo $fname."<br>".$lname."<br>".$dob."<br>".$class."<br>".$caddress."<br>".$plocation."<br>".$section."<br>".$phone;
+        
+        $studentbatch = date("Y");
+
+        $sql = "INSERT INTO `student_details` (`student_id`, `student_name`, `student_surname`, `student_dob`, `student_batch_year`, `student_class`, `student_current_location`, `student_permanent_address`, `student_contact`, `student_class_section`) VALUES ('$studentid','$fname', '$lname', '$dob', '$studentbatch', '$class', '$caddress', '$plocation', '$phone', '$section')";
+        $result = mysqli_query($conn,$sql);
+        if($result){
+            echo "Successfully inserted";
+        }
 
     }
 
