@@ -1,6 +1,13 @@
 *{
     font-family: 'Roboto';
 }
-.result-container{
-    border: 2px solid #000;
+.container{
+    border: 2px solid black;
+}
+.detail{
+    box-sizing: border-box;
+}
+.detail input{
+    padding:10px;
+    font-size:1rem;
 }

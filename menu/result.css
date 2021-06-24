@@ -14,4 +14,6 @@
 }
 .result-form button:hover{
     transform: scale(0.9);   
+}.result-container{
+    border: 2px solid #000;
 }

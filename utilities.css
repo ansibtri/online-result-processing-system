@@ -3,6 +3,9 @@
     align-items: center;
     justify-content: center;
 }
+.flex-s{
+    justify-content: flex-start;
+}
 .flex-c{
     flex-direction: column;
 }
@@ -22,6 +25,9 @@
 }
 .grid-p-3{
     grid-template-columns: 10% 60% 10%;
+}
+.grid-p-2{
+    grid-template-columns: 20% 80%;
 }
 .card{
     background-color: #fff;
@@ -61,6 +67,7 @@ img{
 .bold{
     font-weight: bold;
 }
+
 /* paragraph styling  */
 .para-1{
     padding: 5px 3rem 5px 3rem;
