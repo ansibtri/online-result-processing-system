@@ -1,6 +1,7 @@
 <?php
 
 $showAlert = false;
+$showError = false;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     include '../partials/_dbconnect.php';
     $studentid = $_POST['studentid'];
@@ -14,15 +15,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $phone = $_POST['phone'];
 
     $studentbatch = date("Y");
-
-    $sql = "SELECT * FROM `student_details` WHERE `student_id` = $studentid";
+    $sql = "INSERT INTO `student_details` (`student_id`, `student_name`, `student_surname`, `student_dob`, `student_batch_year`, `student_class`, `student_current_location`, `student_permanent_address`, `student_contact`, `student_class_section`) VALUES ('$studentid','$fname', '$lname', '$dob', '$studentbatch', '$class', '$caddress', '$plocation', '$phone', '$section')";
     $result = mysqli_query($conn, $sql);
     if ($result) {
-        $sql = "INSERT INTO `student_details` (`student_id`, `student_name`, `student_surname`, `student_dob`, `student_batch_year`, `student_class`, `student_current_location`, `student_permanent_address`, `student_contact`, `student_class_section`) VALUES ('$studentid','$fname', '$lname', '$dob', '$studentbatch', '$class', '$caddress', '$plocation', '$phone', '$section')";
-        $result = mysqli_query($conn, $sql);
-        if ($result) {
-            $showAlert = true;    
-        }
+        session_start();
+        $fullname = $fname." ".$lname;
+        $_SESSION['signedup'] = true;
+        $_SESSION['name'] = $fullname;
+        $showAlert = true;
+        header("Location: signup.php");
+    }else{
+        $showError = true;
     }
 }
 
@@ -48,13 +51,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <?php include '../partials/_nav.php'; ?>
     <?php
-    
-        if($showAlert){
-            echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+
+    if ($showAlert) {
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Success!</strong> You Data has been submitted successfully.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>';
-        }
+    }
+    ?>
+    <?php
+    
+    if($showError){
+        echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Success!</strong> You Data has been submitted successfully.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>';
+    }
     
     ?> 
     <div class="container m-2 p-2">

@@ -43,15 +43,7 @@
             <button class="p-1">Submit</button>
         </form>
     </div>
-    <div class="container m-2">
-        <div class="result-container m-4">
-            <h1 class="text-center p-1"> <img src="https://www.freelogoservices.com/api/main/images/1j+ojFVDOMkX9Wytexe43D6khvWAqR9PkRrNwXs1M3EMoAJtliIpgvFr9...4z" alt="" srcset=""></h1>
-            <div class="scl-add">
-            <p class="text-center bold">Galyang, Syangja</p>
-            <p class="text-center bold">Estd.2042</p>
-            </div>
-        </div>
-    </div>
+  
     <?php include '../partials/_footer.php'; ?>
 </body>
 
