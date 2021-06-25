@@ -1,27 +1,30 @@
 <?php
-    
 
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        include '../partials/_dbconnect.php';
-        $studentid = $_POST['studentid'];
-        $fname = $_POST['fname'];
-        $lname = $_POST['surname'];
-        $dob = $_POST['dob'];
-        $class=$_POST['class'];
-        $caddress=$_POST['clocation'];
-        $plocation=$_POST['plocation'];
-        $section = $_POST['section'];
-        $phone=$_POST['phone'];
-        
-        $studentbatch = date("Y");
+$showAlert = false;
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    include '../partials/_dbconnect.php';
+    $studentid = $_POST['studentid'];
+    $fname = $_POST['fname'];
+    $lname = $_POST['surname'];
+    $dob = $_POST['dob'];
+    $class = $_POST['class'];
+    $caddress = $_POST['clocation'];
+    $plocation = $_POST['plocation'];
+    $section = $_POST['section'];
+    $phone = $_POST['phone'];
 
+    $studentbatch = date("Y");
+
+    $sql = "SELECT * FROM `student_details` WHERE `student_id` = $studentid";
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
         $sql = "INSERT INTO `student_details` (`student_id`, `student_name`, `student_surname`, `student_dob`, `student_batch_year`, `student_class`, `student_current_location`, `student_permanent_address`, `student_contact`, `student_class_section`) VALUES ('$studentid','$fname', '$lname', '$dob', '$studentbatch', '$class', '$caddress', '$plocation', '$phone', '$section')";
-        $result = mysqli_query($conn,$sql);
-        if($result){
-            echo "Successfully inserted";
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+            $showAlert = true;    
         }
-
     }
+}
 
 ?>
 
@@ -43,7 +46,17 @@
 </head>
 
 <body>
-    <?php include '../partials/_nav.php';?>
+    <?php include '../partials/_nav.php'; ?>
+    <?php
+    
+        if($showAlert){
+            echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Success!</strong> You Data has been submitted successfully.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>';
+        }
+    
+    ?> 
     <div class="container m-2 p-2">
         <form action="admission.php" method="post">
             <div class="detail grid grid-2 stuid">
