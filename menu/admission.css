@@ -3,6 +3,8 @@
 }
 .container{
     border: 2px solid black;
+    margin:3rem;
+    padding:3rem;
 }
 .detail{
     box-sizing: border-box;

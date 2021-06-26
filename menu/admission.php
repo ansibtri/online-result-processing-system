@@ -2,6 +2,7 @@
 
 $showAlert = false;
 $showError = false;
+$showWarning = false;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     include '../partials/_dbconnect.php';
     $studentid = $_POST['studentid'];
@@ -13,19 +14,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $plocation = $_POST['plocation'];
     $section = $_POST['section'];
     $phone = $_POST['phone'];
+    $fullname = $fname." ".$lname;
 
-    $studentbatch = date("Y");
-    $sql = "INSERT INTO `student_details` (`student_id`, `student_name`, `student_surname`, `student_dob`, `student_batch_year`, `student_class`, `student_current_location`, `student_permanent_address`, `student_contact`, `student_class_section`) VALUES ('$studentid','$fname', '$lname', '$dob', '$studentbatch', '$class', '$caddress', '$plocation', '$phone', '$section')";
-    $result = mysqli_query($conn, $sql);
-    if ($result) {
-        session_start();
-        $fullname = $fname." ".$lname;
-        $_SESSION['signedup'] = true;
-        $_SESSION['name'] = $fullname;
-        $showAlert = true;
-        header("Location: signup.php");
+
+
+
+    $sql = "SELECT * FROM `student_details` WHERE `student_id` = '$studentid'";
+    $result = mysqli_query($conn,$sql);
+    $num = mysqli_num_rows($result);
+    if($num == 1){
+        $showWarning = true;
     }else{
-        $showError = true;
+        $sql = "INSERT INTO `student_details` (`student_id`, `student_name`, `student_surname`, `student_dob`, `student_class`, `student_current_location`, `student_permanent_address`, `student_contact`, `student_class_section`) VALUES ('$studentid','$fname', '$lname', '$dob', '$class', '$caddress', '$plocation', '$phone', '$section')";
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+            $showAlert = true;
+            session_start();
+            $_SESSION['resultsubmit'] = true;
+            $_SESSION['studentid'] = $studentid;
+            header("Location: signup.php");
+        }else{
+            $showError = true;
+        }
     }
 }
 
@@ -43,16 +53,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../utilities.css">
     <link rel="stylesheet" href="admission.css">
+    
 </head>
 
 <body>
     <?php include '../partials/_nav.php'; ?>
     <?php
 
-    if ($showAlert) {
+    if($showAlert){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Success!</strong> You Data has been submitted successfully.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -62,14 +75,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <?php
     
     if($showError){
-        echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Success!</strong> You Data has been submitted successfully.
+        echo '<div class="alert alert-error alert-dismissible fade show" role="alert">
+            <strong>Sorry!</strong> Error occured.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>';
     }
     
     ?> 
-    <div class="container m-2 p-2">
+    <?php
+    
+    if($showWarning){
+        echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Sorry!</strong> Student ID already exist.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>';
+    }
+    
+    ?> 
+    <div class="container">
         <form action="admission.php" method="post">
             <div class="detail grid grid-2 stuid">
                 <label for="studentid">Student ID:</label>

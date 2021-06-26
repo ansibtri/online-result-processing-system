@@ -1,8 +1,17 @@
 <?php
     session_start();
-    if(isset($_SESSION['signedup']) && $_SESSION['fname'] == ""){
-        header("Location: admission.php");
+    if(!isset($_SESSION['resultsubmit']) && $_SESSION['resultsubmit'] !=true && $_SESSION['studentid'] == ""){
+        header("Location: ../index.php");
         exit();
+    }
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        include '../partials/_dbconnect.php';
+        $studentid = $_SESSION['studentid'];
+        $username = $_POST['username'];
+        $useremail = $_POST['email'];
+        $password = $_POST['password'];
+    }else{
+        $sql = "INSERT INTO `student_account` (`student_serial_acc_id`, `student_id`, `student_username`, `student_email`, `student_pass`, `dt`) VALUES ('$studentid', '$username', '$useremail', '$password');";
     }
 ?>
 
