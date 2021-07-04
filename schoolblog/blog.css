@@ -1,0 +1,28 @@
+*{
+    margin:0;
+    padding:0;
+}
+.grid-card{
+    grid-template-columns: 400px 400px 400px;
+}
+.container{
+    padding:10px;
+}
+.card{
+    margin:1rem;
+}
+.headimg img{
+    border-radius: 20px;
+    margin:0;
+    padding:0;
+}
+a{
+    color:#000000;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+.user{
+    padding:30px 0px 10px 10px;
+}

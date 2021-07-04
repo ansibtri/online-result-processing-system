@@ -9,6 +9,7 @@
         $sql = "SELECT * FROM `student_account` WHERE `student_username` = '$username'";
         $result = mysqli_query($conn,$sql);
         $num = mysqli_num_rows($result);
+
         if($num == 1){
             while($row = mysqli_fetch_assoc($result)){
                 if(password_verify($password, $row['student_pass'])){
@@ -16,7 +17,8 @@
                         session_start();
                         $_SESSION['username'] = $username;
                         $_SESSION['studentid'] = $row['student_id'];
-                        header("Location: resultpage.php");
+                        // echo $_SESSION['username'],$_SESSION['student_id'],$row[]
+                        header("Location: createpdf.php");
                     }else{
                         session_unset();
                         session_destroy();
@@ -66,29 +68,21 @@
     }
     
     ?> 
-    <?php
-    
-    if($showWarning){
-        echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Sorry!</strong> Try Again.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>';
-    }
-    
-    ?> 
     <div class="container xl m-5">
         <h1>Result</h1>
         <p>Result of the final exam has been published.</p>
         <!-- <img src="" alt="notice"> -->
     </div>
     <div class="mx-5">
-        <p>Provide your details correctly.</p>
+        <p class="px-3">Provide your details correctly.</p>
     </div>
     <div class="container m-5 result-form">
-        <form action="result.php" method="POST" class="grid grid-3 grid-gap">
+        <form action="result.php" method="POST" class="grid grid-2 grid-gap">
             <input type="text" name="username" id="username" placeholder="Enter Username" class="p-2">
-            <input type="password" name="password" id="password" maxlength="255" class="p-1" placeholder="Enter Password">
-            <button class="p-1">Submit</button>
+            <input type="password" name="password" id="password" maxlength="255" class="p-2" placeholder="Enter Password">
+            <!-- <input type="date" name="birthdate" id="birthdate" class="p-1">
+            <input type="number" name="studentid" id="studentid" maxlength="10" class="p-1" placeholder="Student ID"> -->
+            <button class="p-2 button">Submit</button>
         </form>
     </div>
   

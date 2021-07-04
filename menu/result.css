@@ -17,6 +17,8 @@
     background: transparent;
     position: relative;
     overflow:hidden;
+    grid-column-start: 1;
+    grid-column-end: 3;
 }
 .result-form button::after{
     content: '';

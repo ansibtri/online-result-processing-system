@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($result) {
             $showAlert = true;
             session_start();
-            $_SESSION['resultsubmit'] = true;
+            $_SESSION['signedup'] = true;
             $_SESSION['studentid'] = $studentid;
             header("Location: signup.php");
         }else{

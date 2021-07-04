@@ -45,6 +45,7 @@
 .navbar ul li a{
     font-family: 'Roboto';
     text-transform: uppercase;
+    color: #ffffff;
 }
 .dropdown-menu{
     position: absolute;

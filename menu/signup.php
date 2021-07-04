@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(!isset($_SESSION['resultsubmit']) && $_SESSION['resultsubmit'] !=true && $_SESSION['studentid'] == "" && $_SESSION['studentid'] == NULL){
+    if(!isset($_SESSION['signedup']) && $_SESSION['signedup'] !=true && $_SESSION['studentid'] == "" && $_SESSION['studentid'] == NULL && empty($_SESSION['studentid']) == true){
         header("Location: ../index.php");
         exit();
     }
@@ -24,7 +24,9 @@
             $sql = "INSERT INTO `student_account` (`student_id`, `student_username`, `student_email`, `student_pass`) VALUES ('$studentid', '$username', '$useremail', '$password');";
             $result = mysqli_query($conn,$sql);
             if($result){
-                header("Location: signout.php");
+                $_SESSSION['resultsubmit'] = true;
+                $_SESSION['studentid'] = $studentid;
+                header("Location: signups.php");
             }else{
                 $showError = true;
             }

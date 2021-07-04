@@ -1,6 +1,6 @@
 <?php
 
-
+$showlogout;
     echo '    <!-- header starts here  -->
     <header>
         <div class="navbar grid grid-p-3 lg">
@@ -33,8 +33,8 @@
                         <li><a href="/school web/menu/result.php" class="text">Result</a></li>
                         <li><a href="aboutus.html" class="text">About Us</a></li>
                         <li><a href="contact.html" class="text">Contact Us</a></li>
-                        <li><a href="schoolblog.html" class="text">Blog</a></li>
-                        <a href="index.html" class="px-2">
+                        <li><a href="../schoolblog/blog.php" class="text">Blog</a></li>';
+                        echo'<a href="index.html" class="px-2">
                             <img src="https://www.freelogoservices.com/api/main/images/1j+ojFVDOMkX9Wytexe43D6khvWAqR9PkRrNwXs1M3EMoAJtliIpgvFr9...4z" alt="">
                         </a>
                     </ul>
