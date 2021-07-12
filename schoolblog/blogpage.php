@@ -46,7 +46,7 @@
         }
     }
 
-?> 
+?>
 
 
 
@@ -73,7 +73,7 @@
 
 <body>
     <?php include'../partials/_dbconnect.php'; ?>
-    
+
     <?php include'../partials/_nav.php'; ?>
 
     <div class="container">
@@ -108,7 +108,7 @@
         
         }
     ?>
-        
+
     </div>
     <div class="container flex flex-c">
         <?php
@@ -174,26 +174,32 @@
         </div>';
         }
     ?>
- 
+
         <div class="cmt-user grid p-4">
-                <?php
+            <?php
 
 $id = $_GET['open'];
+$nopost = false;
+if($id = "nopost"){
+    $nopost = true;
+
+}
 $openid = substr($id,1,strlen($id));
 $sql = "SELECT * FROM `blog_comment` WHERE `blog_sno` = '$openid'";
 $result = mysqli_query($conn,$sql);
-while($row = mysqli_fetch_assoc($result)){
-    $comment = $row['comment_content'];
-    $postedon = date_format(date_create($row['cmnt_dt']),"Y/m/d");
-    $commentby = $row['cmnt_by'];
+    while($row = mysqli_fetch_assoc($result)){
+        
+        $comment = $row['comment_content'];
+        $postedon = date_format(date_create($row['cmnt_dt']),"Y/m/d");
+        $commentby = $row['cmnt_by'];
 
-    $cmtr_detail = "SELECT * FROM `student_account` WHERE `student_id` = '$commentby'";
-    $cmtr_result = mysqli_query($conn,$cmtr_detail);
-    while($cmtr = mysqli_fetch_assoc($cmtr_result)){
-        $username = $cmtr['student_username'];
-        echo ' <div class="cmnt-container card">
-                <div class="user grid grid-p-3 grid-gap">
-                    <img class="border-radius-50"
+        $cmtr_detail = "SELECT * FROM `student_account` WHERE `student_id` = '$commentby'";
+        $cmtr_result = mysqli_query($conn,$cmtr_detail);
+        while($cmtr = mysqli_fetch_assoc($cmtr_result)){
+            $username = $cmtr['student_username'];
+            echo ' <div class="cmnt-container card">
+                    <div class="user grid grid-p-3 grid-gap">
+                        <img class="border-radius-50"
                         src="assets/stu_pic/png-clipart-male-portrait-avatar-computer-icons-icon-design-avatar-flat-face-icon-people-head.png"
                         alt="">
                     <h4>'.$username.'</h4>
@@ -204,12 +210,10 @@ while($row = mysqli_fetch_assoc($result)){
                 </div>
             </div>
              ';
-    }
-}
-    
-    
-    ?>
-           
+        }
+    }    
+?>
+
         </div>
     </div>
     <?php include'../partials/_footer.php'; ?>

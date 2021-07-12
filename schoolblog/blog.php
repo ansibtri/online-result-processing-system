@@ -10,7 +10,9 @@
         $result = mysqli_query($conn, $sql);
         $num = mysqli_num_rows($result);
         if($num == 1){
+
             while($row = mysqli_fetch_assoc($result)){
+                
                 if(password_verify($password, $row['student_pass'])){
                     session_start();
                     $_SESSION['loggedin'] = true;
@@ -110,7 +112,6 @@
     <!-- https://source.unsplash.com/400x300/?nature,water -->
     <h1 class="text-center m-4">Read The Blog Post</h1>
     <div class="container grid grid-card">
-        
         <?php
     
     $sql = "SELECT * FROM `blog_data`";
